@@ -4,7 +4,8 @@ def gpa(marks1):
     earned_cre=0
     cre_sum=0
     sem5={'18CS51':3,'18CS52':4,'18CS53':4,'18CS54':3,'18CS55':3,'18CS56':3,'18CSL57':2,'18CSL58':2,'18CIV59':1,
-    '18MAT41':0,'18CS45':0,'18CS46':0,'18CS33':0,'18CSL38':0,'18ELE13':0}
+          '18MAT41': 0, '18CS45': 0, '18CS46': 0, '18CS33': 0, '18CSL38': 0, '18ELE13': 0, '18MAT31': 3, '18CS32': 3, '18CS33': 3, '18CS34': 3, 
+          }
     gpa_table=[]
     for row in marks1:
         data=[]

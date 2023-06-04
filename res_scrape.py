@@ -1,5 +1,6 @@
 from gpa_cal import gpa, grade
 from spread_sheet import write_sheet
+from client_server import client,server
 import time
 import socket
 from selenium import webdriver
@@ -16,9 +17,11 @@ from bs4 import BeautifulSoup
 head = ['SUB-CODE', 'SUBJECT-NAME', 'TOTAL-CREDITS',
         'TOTAL-MARKS', 'GRADE-LETTER', 'GRADE-POINT', 'EARNED-CREDITS']
 
+server()
+
 browser = webdriver.Chrome()
-l = int(179)
-h = int(180)
+l = int(133)
+h = int(133)
 # for i in range(177, 180):
 print("usn = ", l)
 while (l <= h):
@@ -37,15 +40,18 @@ while (l <= h):
     print(img_ele[1].get_attribute('src'))
     with open('captcha_src.png', 'wb') as file:
         file.write(img_ele[1].screenshot_as_png)
+    capt=client()
+
 
 # fill
     capt_ele = browser.find_element(By.NAME, "captchacode")
 
-    capt = input('enter captcha')
+    # capt = input('enter captcha')
+
     while (len(capt) < 6):
         print('Cpathca should contain 6 characters')
         print('Re-enter the captcha')
-        capt = input('enter captcha')
+        # capt = input('enter captcha')
     capt_ele.send_keys(capt)
 # submit
     submit = browser.find_element(By.ID, 'submit')
