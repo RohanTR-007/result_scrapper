@@ -1,4 +1,5 @@
 Result Scrapper
+
  -> Built for VTU Colleges
  Currently works for 5th sem results
 
