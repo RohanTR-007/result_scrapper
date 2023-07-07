@@ -1,4 +1,5 @@
-
+from tmp import sub_code
+# marks1[sub-code, sub-name, internal-marks,external-marks,total-marks,P/F,updated-on]
 
 def gpa(marks1):
     earned_cre=0
@@ -10,20 +11,22 @@ def gpa(marks1):
     for row in marks1:
         data=[]
         data.extend([row[0],row[1]])
-        total_credits=sem5[row[0]]
+        total_credits=sub_code[row[0]]
         data.append(total_credits)
         data.append(int(row[4]))
         gl,gp=grade(int(row[4]))
         data.extend([gl,gp])
+        
         credit_point=total_credits*gp
         data.append(credit_point)
+
         earned_cre+=credit_point
         cre_sum+=total_credits
         gpa_table.append(data)
     return [gpa_table,earned_cre,cre_sum]
 
-#Grade point and grade letter
-def grade(m):
+#Grade point and grade letter 
+def grade(m): #m -> marks
     grade_point = 0
     grade_letter = ''
     if m >= 90:

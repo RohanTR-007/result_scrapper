@@ -2,7 +2,7 @@
 from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
-
+import os
 
 def write_sheet(USN, Name, marks, ec, tc, sgpa):
     wb = Workbook()
@@ -31,6 +31,8 @@ def write_sheet(USN, Name, marks, ec, tc, sgpa):
     sheet.cell(row=r+2, column=1).font = Font(bold=True, color="0099CCFF")
 
     wb.save(f"{USN}.xlsx")
+    # file = f'C:/Users/ROHAN/mypython/res-scrape/res_scrape/{USN}.xlsx'
+    # os.startfile(file)
 
 #                           Test Data
 #     marks = [['18CS51', 'MANAGEMENT AND ENTREPRENEURSHIP FOR IT INDUSTRY', 3, 83, 'S', 9, 27],

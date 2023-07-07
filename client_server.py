@@ -5,8 +5,9 @@ import struct
 
 def client():
     c = socket.socket()
-    c.connect(('localhost', 8100))
-
+    c.connect(("localhost", 8100))
+    # 10.100.17.65
+    # "100.68.194.73", 40488
     file_path = 'captcha_src.png'
 
     # Send file size

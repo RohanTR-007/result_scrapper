@@ -1,6 +1,7 @@
 from gpa_cal import gpa, grade
 from spread_sheet import write_sheet
 from client_server import client,server
+import os
 import time
 import socket
 from selenium import webdriver
@@ -14,14 +15,19 @@ import xlwt
 from xlwt import Workbook
 from bs4 import BeautifulSoup
 
-head = ['SUB-CODE', 'SUBJECT-NAME', 'TOTAL-CREDITS',
-        'TOTAL-MARKS', 'GRADE-LETTER', 'GRADE-POINT', 'EARNED-CREDITS']
 
-server()
+
+# server()
+
+l = int(input("Enter starting USN :"))
+h = int(input("Enter ending USN :"))
+code = input('Enter college code')
+year = input("Enter year")
+branch = input("Enter branch")
 
 browser = webdriver.Chrome()
-l = int(133)
-h = int(133)
+# l = int(1)
+# h = int(2)
 # for i in range(177, 180):
 print("usn = ", l)
 while (l <= h):
@@ -30,11 +36,20 @@ while (l <= h):
     browser.get(url)
     # browser.maximize_window()
     usn_ele = browser.find_element(By.NAME, "lns")
-
-    usn = f'1by20is{l}'
+    s=f'1{code}{year}{branch}'
+    if(l > 0 and l<10):
+        usn = f'{s}00{l}'
+        # usn = f'1by20is00{l}'
+    elif (l>=10 and l<=99):
+        usn = f'{s}0{l}'
+        # usn = f'1by20is0{l}'
+    else:
+        usn = f'{s}{l}'
+        # usn = f'1by20is{l}'
+    # usn = f'1by20is{l}'
     usn_ele.send_keys(usn)
 
-
+    print(usn)
 # getting img
     img_ele = browser.find_elements(By.TAG_NAME, 'img')
     print(img_ele[1].get_attribute('src'))
@@ -48,9 +63,10 @@ while (l <= h):
 
     # capt = input('enter captcha')
 
-    while (len(capt) < 6):
+    if (len(capt) < 6):
         print('Cpathca should contain 6 characters')
         print('Re-enter the captcha')
+        continue
         # capt = input('enter captcha')
     capt_ele.send_keys(capt)
 # submit
@@ -63,6 +79,9 @@ while (l <= h):
         a = browser.switch_to.alert
         print(a.text)
         a.accept()
+        if('USN' in a.text):
+            print(f"Reenter USN {USN} is invald")
+            l = int(input("Enter USN (only number) "))
         scrape = False
         continue
     except:
@@ -105,4 +124,6 @@ while (l <= h):
     write_sheet(USN, NAME, gp[0], gp[1], gp[2], sgpa)
 
     l += 1
+
+
 browser.quit()
