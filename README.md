@@ -1,8 +1,6 @@
 Result Scrapper
 
  -> Built for VTU Colleges
- Currently works for 5th sem results
-
  -> Should give USN
  -> Validates USN
  -> Solves Captcha through a Human Powered API (Developed with Simple Client Server Architecture)
@@ -10,10 +8,9 @@ Result Scrapper
  -> Scrapes all the results
  -> Stores in a spreadsheet with sgpa calculation
 
- CLIENT - SIDE WORKING
-
-https://github.com/RohanTR-007/result_scrapper/assets/74963641/c3be51c7-ed9e-4bf5-bdd7-11724001520e
+CLIENT - SIDE WORKING
+https://github.com/RohanTR-007/result_scrapper/assets/74963641/c720a02e-d4d3-4474-af41-845f26b0a087
 
 SERVER - SIDE WORKING
-https://github.com/RohanTR-007/result_scrapper/assets/74963641/7e552fcd-af4e-42e3-b861-15f0b1ecd301
+https://github.com/RohanTR-007/result_scrapper/assets/74963641/63922757-6221-4be7-af5d-c828c8a393d7
 
