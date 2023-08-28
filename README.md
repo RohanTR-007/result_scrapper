@@ -7,7 +7,7 @@
 
 **Python** 
 
-**Modules:** Bs4, Selenium, OpenPyXl
+**Modules:** Bs4, Selenium, OpenPyXL
 
 
 ### CLIENT - SIDE WORKING
